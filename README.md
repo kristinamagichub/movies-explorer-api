@@ -8,15 +8,13 @@ API для аутентификации пользователей и сохра
 API для аутентификации пользователей и сохранения фильмов в избранном. 
 Создан для сервиса поиска фильмов Movie Explorer, в котором можно найти фильм по ключевым словам.
 
-Адрес репозитория:  
+Адрес репозитория  https://github.com/kristinamagichub/movies-explorer-api
 
 <h2> Ссылки на проект</h2>
 
-IP 
+IP 51.250.106.122
 
-
-
-Backend 
+Backend https://api.movieview.nomoredomainsrocks.ru
 
 <h2> Директории</h2>
 
