@@ -29,8 +29,7 @@ app.use(helmet());
 app.use(bodyParser.json()); // для собирания JSON-формата
 app.use(bodyParser.urlencoded({ extended: true })); // для приёма веб-страниц внутри POST-запроса
 
-
-mongoose.connect(DB_URL, {   // подключаемся к серверу mongo
+mongoose.connect(DB_URL, { // подключаемся к серверу mongo
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

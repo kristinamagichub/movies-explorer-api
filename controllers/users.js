@@ -84,7 +84,7 @@ module.exports.login = async (req, res, next) => {
     res.send({ token }); // вернём токен
   } catch (err) {
     next(err);
-  };
+  }
 };
 
 module.exports.getMeUser = (req, res, next) => {
