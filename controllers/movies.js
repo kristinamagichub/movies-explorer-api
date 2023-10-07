@@ -8,11 +8,13 @@ const ForbiddenError = require('../errors/ForbiddenError');
 
 module.exports.addMovie = async (req, res, next) => {
   const {
-    name, movieId, country, director, duration, year, description, image, trailerLink, thumbnail,
+    nameEN, nameRU, movieId, country, director, duration, year,
+    description, image, trailerLink, thumbnail,
   } = req.body;
   try {
     const movie = await Movie.create({
-      name,
+      nameEN,
+      nameRU,
       owner: req.user._id,
       movieId,
       country,

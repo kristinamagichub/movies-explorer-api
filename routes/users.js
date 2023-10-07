@@ -9,7 +9,7 @@ router.get('/me', getMeUser);
 
 router.patch('/me', celebrate({
   body: Joi.object().keys({
-    name: Joi.string().required().min(1).max(99),
+    name: Joi.string().required(),
   }),
 }), editUserData);
 

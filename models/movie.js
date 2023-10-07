@@ -19,7 +19,7 @@ const movieSchema = new mongoose.Schema({
     required: true,
   },
   year: {
-    type: mongoose.Schema.Types.Number, // String,
+    type: mongoose.Schema.Types.String,
     required: true,
   },
   description: {
@@ -28,7 +28,6 @@ const movieSchema = new mongoose.Schema({
   },
   movieId: {
     type: mongoose.Schema.Types.Number,
-    ref: 'user',
     required: true,
   },
   image: {
@@ -39,6 +38,7 @@ const movieSchema = new mongoose.Schema({
       },
       message: 'Введите url адрес',
     },
+    required: true, //
   },
   trailerLink: {
     type: String,
@@ -48,6 +48,7 @@ const movieSchema = new mongoose.Schema({
       },
       message: 'Введите url адрес',
     },
+    required: true, //
   },
   thumbnail: {
     type: String,
@@ -57,30 +58,20 @@ const movieSchema = new mongoose.Schema({
       },
       message: 'Введите url адрес',
     },
+    required: true, //
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
-    required: true,
+    required: true, //
   },
-  name: {
-    'en-UK': {
-      type: String,
-      required: [true, dict.required()],
-      minlength: [1, dict.minlength()],
-      maxlength: [99, dict.maxlength()],
-    },
-    ru: {
-      type: String,
-      required: [true, dict.required()],
-      minlength: [1, dict.minlength()],
-      maxlength: [99, dict.maxlength()],
-    },
-    es: {
-      type: String,
-      minlength: [1, dict.minlength()],
-      maxlength: [99, dict.maxlength()],
-    },
+  nameEN: {
+    type: String,
+    required: [true, dict.required()],
+  },
+  nameRU: {
+    type: String,
+    required: [true, dict.required()],
   },
 }, { versionKey: false });
 

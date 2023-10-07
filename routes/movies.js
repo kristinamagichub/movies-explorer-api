@@ -15,21 +15,17 @@ router.delete('/:_id', celebrate({
 
 router.post('/', celebrate({
   body: Joi.object().keys({
-    movieId: Joi.number().min(1).max(99999).required(),
-    country: Joi.string().min(1).max(99).required(),
-    director: Joi.string().min(1).max(99).required(),
-    duration: Joi.number().max(99999).required(),
-    year: Joi.number().min(2).max(99999).required(),
-    description: Joi.string().min(1).max(99999).required(),
+    movieId: Joi.number().required(),
+    country: Joi.string().required(),
+    director: Joi.string().required(),
+    duration: Joi.number().required(),
+    year: Joi.string().required(),
+    description: Joi.string().required(),
     image: Joi.string().pattern(urlRegex).required(),
     trailerLink: Joi.string().pattern(urlRegex).required(),
-    name: {
-      'en-UK': Joi.string().min(1).max(99).required(),
-      ru: Joi.string().min(1).max(99).required(),
-      es: Joi.string().min(1).max(99),
-    },
+    nameRu: Joi.string().required(),
+    nameEN: Joi.string().required(),
     thumbnail: Joi.string().pattern(urlRegex).required(),
-    owner: Joi.string().required(),
   }),
 }), addMovie);
 
