@@ -38,7 +38,7 @@ const movieSchema = new mongoose.Schema({
       },
       message: 'Введите url адрес',
     },
-    required: true, //
+    required: true,
   },
   trailerLink: {
     type: String,
@@ -48,7 +48,7 @@ const movieSchema = new mongoose.Schema({
       },
       message: 'Введите url адрес',
     },
-    required: true, //
+    required: true,
   },
   thumbnail: {
     type: String,
@@ -58,12 +58,12 @@ const movieSchema = new mongoose.Schema({
       },
       message: 'Введите url адрес',
     },
-    required: true, //
+    required: true,
   },
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
-    required: true, //
+    required: true,
   },
   nameEN: {
     type: String,

@@ -8,10 +8,10 @@ const rateLimit = require('express-rate-limit');
 const { errors } = require('celebrate');
 const cors = require('cors');
 
-const auth = require('./middlewares/auth');
 const errorHandler = require('./middlewares/errorHandler');
-const NotFoundError = require('./errors/NotFoundError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
+
+const routes = require('./routes/index');
 
 const { PORT = 3000, DB_URL = 'mongodb://127.0.0.1:27017/bitfilmsdb' } = process.env; // переменная окружения
 
@@ -38,17 +38,7 @@ app.use(requestLogger); // подключаем логгер запросов
 
 app.use(limiter);
 
-app.use('/signin', require('./routes/signin'));
-app.use('/signup', require('./routes/signup'));
-
-app.use(auth);
-
-app.use('/users', require('./routes/users'));
-app.use('/movies', require('./routes/movies'));
-
-app.use('*', (req, res, next) => {
-  next(new NotFoundError('страница не найдена'));
-});
+app.use('/', routes);
 
 app.use(errorLogger); // подключаем логгер ошибок
 

@@ -62,7 +62,9 @@ module.exports.editUserData = async (req, res, next) => {
       .orFail();
     res.status(HTTP_STATUS_OK).send(user);
   } catch (err) {
-    if (err instanceof mongoose.Error.ValidationError) {
+    if (err.code === 11000) {
+      next(new ConflictError(`Пользователь с email:${email} уже зарегистрирован`));// 409
+    } else if (err instanceof mongoose.Error.ValidationError) {
       next(new BadRequestError('Некорректно заполнены поля или одно из двух полей')); // 400
       return;
     }
